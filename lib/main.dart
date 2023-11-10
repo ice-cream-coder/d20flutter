@@ -95,11 +95,11 @@ class MainController extends State<MainWidget> with TickerProviderStateMixin {
                   rollOneMore: this.rollOneMore,
                 ),
                 DiceButton(
-                    text: "D6",
-                    imageId: "images/D6.png",
-                    onChange: this.onChangeFactory(6),
-                    onRoll: this.onRoll,
-                    rollOneMore: this.rollOneMore,
+                  text: "D6",
+                  imageId: "images/D6.png",
+                  onChange: this.onChangeFactory(6),
+                  onRoll: this.onRoll,
+                  rollOneMore: this.rollOneMore,
                 ),
                 DiceButton(
                   text: "D8",
@@ -296,7 +296,9 @@ class Roll {
 
   Roll(this.count, this.sides);
 
-  String _render() => this.count == 0 ? "" : this.count.toString() + "d" + this.sides.toString();
+  String _render() => this.count == 0
+      ? ""
+      : this.count.toString() + "d" + this.sides.toString();
 
   static String render(Roll roll) => roll?._render() ?? "";
 
