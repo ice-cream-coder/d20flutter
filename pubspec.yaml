@@ -67,6 +67,7 @@ flutter:
     - images/D10.png
     - images/D12.png
     - images/D20.png
+    - images/D100.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware
