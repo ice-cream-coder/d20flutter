@@ -24,12 +24,6 @@ class _DiceButtonState extends State<DiceButton> {
       width: MediaQuery.of(context).size.width / 6,
       child: GestureDetector(
           behavior: HitTestBehavior.translucent,
-          onTapDown: (result) {
-            DateTime currentTap = DateTime.now();
-            if (lastTap == null || currentTap.difference(lastTap!).inMilliseconds > 333) {
-              widget.onChange(1);
-            }
-          },
           onTapUp: (result) {
             DateTime currentTap = DateTime.now();
             if (lastTap == null || currentTap.difference(lastTap!).inMilliseconds > 333) {
