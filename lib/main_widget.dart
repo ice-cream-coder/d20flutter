@@ -1,4 +1,5 @@
 import "package:d20flutter_new/dice_row.dart";
+import "package:d20flutter_new/header_row.dart";
 import "package:d20flutter_new/results_widget.dart";
 import "package:flutter/material.dart";
 import "roll.dart";
@@ -30,6 +31,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
+        HeaderRow(),
         ResultsWidget(roll: roll, boom: _boom),
         DiceRow(createOnChangeCallback: createOnChangeCallback, onRoll: onRoll, rollOneMore: rollOneMore)
       ],

@@ -1,8 +1,11 @@
 import 'package:d20flutter_new/app_container.dart';
+import 'package:d20flutter_new/settings.dart';
 import "package:flutter/material.dart";
 import 'package:flutter_statusbarcolor_ns/flutter_statusbarcolor_ns.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Settings.init();
   runApp(const App());
 }
 
