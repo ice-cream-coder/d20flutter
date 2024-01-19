@@ -5,12 +5,14 @@ class SideScrollHandle extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: 4, 
-      height: 30,
-      decoration: BoxDecoration(
-        color: Colors.white.withOpacity(0.7), 
-        borderRadius: BorderRadius.circular(2)
+    return Padding(
+      padding: const EdgeInsets.all(4.0),
+      child: Container(
+        width: 4,
+        height: 30,
+        decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+            borderRadius: BorderRadius.circular(2)),
       ),
     );
   }

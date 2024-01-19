@@ -31,7 +31,7 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
   Widget build(BuildContext context) {
     return Column(
       children: <Widget>[
-        HeaderRow(),
+        const HeaderRow(),
         ResultsWidget(roll: roll, boom: _boom),
         DiceRow(createOnChangeCallback: createOnChangeCallback, onRoll: onRoll, rollOneMore: rollOneMore)
       ],

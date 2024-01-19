@@ -8,7 +8,13 @@ class DiceButton extends StatefulWidget {
   final Function onRoll;
   final Function rollOneMore;
 
-  const DiceButton({super.key, required this.text, required this.imageId, required this.onChange, required this.onRoll, required this.rollOneMore});
+  const DiceButton(
+      {super.key,
+      required this.text,
+      required this.imageId,
+      required this.onChange,
+      required this.onRoll,
+      required this.rollOneMore});
 
   @override
   State<DiceButton> createState() => _DiceButtonState();
@@ -26,7 +32,8 @@ class _DiceButtonState extends State<DiceButton> {
           behavior: HitTestBehavior.translucent,
           onTapUp: (result) {
             DateTime currentTap = DateTime.now();
-            if (lastTap == null || currentTap.difference(lastTap!).inMilliseconds > 333) {
+            if (lastTap == null ||
+                currentTap.difference(lastTap!).inMilliseconds > 333) {
               widget.onChange(1);
               widget.onRoll();
             } else {
@@ -40,7 +47,8 @@ class _DiceButtonState extends State<DiceButton> {
           onVerticalDragUpdate: (details) {
             // RenderBox box = context.findRenderObject();
             // Offset offset = box.globalToLocal(details.globalPosition);
-            widget.onChange(max(1, (startOffsetY - details.globalPosition.dy) ~/ 20));
+            widget.onChange(
+                max(1, (startOffsetY - details.globalPosition.dy) ~/ 20));
             // widget.onChange(max(1, (-offset.dy + 40) ~/ 20));
           },
           onVerticalDragEnd: (details) {
@@ -52,7 +60,10 @@ class _DiceButtonState extends State<DiceButton> {
               SizedBox(
                 height: 35,
                 width: 35,
-                child: Image.asset(widget.imageId),
+                child: Image.asset(
+                  widget.imageId,
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
               const SizedBox(
                 height: 8,

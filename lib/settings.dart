@@ -1,11 +1,15 @@
-import 'package:d20flutter_new/theme.dart';
+import 'custom_theme.dart';
+import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Settings {
   static SharedPreferences? _prefs;
+  static final ValueNotifier<CustomTheme> _customThemeNotifier =
+      ValueNotifier(CustomTheme.black);
 
   static Future<void> init() async {
     _prefs = await SharedPreferences.getInstance();
+    _customThemeNotifier.value = customTheme;
   }
 
   static bool get showSettings {
@@ -24,13 +28,17 @@ class Settings {
     _prefs?.setBool('showHistory', value);
   }
 
-  static Theme get theme {
-    String themeString = _prefs?.getString('theme') ?? 'black';
-    return Theme.values.firstWhere((e) => e.toString() == 'Theme.$themeString',
-        orElse: () => Theme.black);
+  static CustomTheme get customTheme {
+    String customThemeString = _prefs?.getString('CustomTheme') ?? 'black';
+    return CustomTheme.values.firstWhere(
+        (e) => e.toString() == 'CustomTheme.$customThemeString',
+        orElse: () => CustomTheme.black);
   }
 
-  static set theme(Theme value) {
-    _prefs?.setString('theme', value.toString().split('.').last);
+  static set customTheme(CustomTheme value) {
+    _prefs?.setString('CustomTheme', value.toString().split('.').last);
+    _customThemeNotifier.value = value;
   }
+
+  static ValueNotifier<CustomTheme> get themeNotifier => _customThemeNotifier;
 }
