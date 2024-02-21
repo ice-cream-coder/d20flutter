@@ -70,13 +70,15 @@ class _HeaderRowState extends State<HeaderRow> {
   void _gearPressed() {
     setState(() {
       _showSettings = !_showSettings;
-      Settings.showHistory = _showSettings;
+      Settings.showSettings = _showSettings;
     });
   }
 
-  void _statsPressed() {}
+  void _statsPressed() {
+    Settings.showHistory = !Settings.showHistory;
+  }
 
   void _colorPressed() {
-    Settings.customTheme = Settings.customTheme.toggle();
+    Settings.customTheme = Settings.customTheme.next();
   }
 }

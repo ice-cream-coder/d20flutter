@@ -18,14 +18,13 @@ class App extends StatelessWidget {
     FlutterStatusbarcolor.setStatusBarWhiteForeground(true);
     return ValueListenableBuilder(
       valueListenable: Settings.themeNotifier,
-      builder: (context, currentTheme, child) {
+      builder: (context, currentTheme, _) {
         return Container(
           color: currentTheme.backgroundColor,
           child: Theme(
-            data: ThemeData(primaryColor: currentTheme.tintColor),
+            data: ThemeData(primaryColor: currentTheme.tintColor, backgroundColor: currentTheme.backgroundColor),
             child: WidgetsApp(
-              textStyle: TextStyle(
-                  fontFamily: 'BasicSans', color: currentTheme.tintColor),
+              textStyle: TextStyle(fontFamily: 'BasicSans', color: currentTheme.tintColor),
               color: currentTheme.tintColor,
               debugShowCheckedModeBanner: false,
               builder: (BuildContext context, Widget? child) {

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'roll.dart';
+import 'model/roll_model.dart';
 import 'result_layout_delegate.dart';
 
 class ResultsWidget extends StatelessWidget {
@@ -9,7 +9,7 @@ class ResultsWidget extends StatelessWidget {
     required Animation<double> boom,
   }) : _boom = boom;
 
-  final Roll roll;
+  final RollModel roll;
   final Animation<double> _boom;
 
   @override
@@ -20,7 +20,7 @@ class ResultsWidget extends StatelessWidget {
         children: <Widget>[
           LayoutId(
             id: ResultLayoutKeys.roll,
-            child: Text(Roll.render(roll),
+            child: Text(roll.render(),
                 style: const TextStyle(
                   fontSize: 38,
                 )),

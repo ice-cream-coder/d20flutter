@@ -1,15 +1,18 @@
-import 'dart:math';
+import "dart:math";
 
-class Roll {
+class RollModel {
   int count;
   final int sides;
   List<int> rolls = [];
 
-  Roll(this.count, this.sides);
+  RollModel(this.count, this.sides);
 
-  String _render() => count == 0 ? "" : "${count}d$sides";
+  RollModel.copy(RollModel source)
+      : count = source.count,
+        sides = source.sides,
+        rolls = [...source.rolls];
 
-  static String render(Roll roll) => roll._render();
+  String render() => count == 0 ? "" : "${count}d$sides";
 
   void _roll() {
     rolls.add(Random().nextInt(sides) + 1);
@@ -39,6 +42,6 @@ class Roll {
   }
 }
 
-class EmptyRoll extends Roll {
-  EmptyRoll() : super(0, 0);
+class EmptyRollModel extends RollModel {
+  EmptyRollModel() : super(0, 0);
 }

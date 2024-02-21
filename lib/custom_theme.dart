@@ -15,7 +15,7 @@ enum CustomTheme {
 }
 
 extension ThemeExtension on CustomTheme {
-  CustomTheme toggle() {
+  CustomTheme next() {
     switch (this) {
       case CustomTheme.black:
         return CustomTheme.blue;
