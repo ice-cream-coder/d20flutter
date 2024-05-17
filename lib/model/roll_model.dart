@@ -1,6 +1,11 @@
 import "dart:math";
 
+import "package:d20flutter_new/model/roll.dart";
+import "package:d20flutter_new/model/roll_group.dart";
+import "package:uuid/uuid.dart";
+
 class RollModel {
+  String id = const Uuid().v4();
   int count;
   final int sides;
   List<int> rolls = [];
@@ -39,6 +44,14 @@ class RollModel {
       sum += rolls[i];
     }
     return sum.toString();
+  }
+
+  RollGroup toRollGroup() {
+    return RollGroup(id: id);
+  }
+
+  List<Roll> toRolls() {
+    return rolls.map((roll) => Roll(die: sides, side: roll, rollGroupId: id)).toList();
   }
 }
 

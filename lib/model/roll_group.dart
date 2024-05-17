@@ -1,10 +1,12 @@
 class RollGroup {
-  final int id;
-  final String createdAt;
+  final String id;
+  final DateTime createdAt;
 
-  RollGroup({required this.id, required this.createdAt});
+  RollGroup({required this.id}) : createdAt = DateTime.now();
 
-  factory RollGroup.fromMap(Map<String, dynamic> json) => RollGroup(
+  RollGroup._fromMap({required this.id, required this.createdAt});
+
+  factory RollGroup.fromMap(Map<String, dynamic> json) => RollGroup._fromMap(
         id: json['id'],
         createdAt: json['created_at'],
       );

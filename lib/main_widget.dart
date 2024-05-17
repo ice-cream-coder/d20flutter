@@ -24,6 +24,8 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
   @override
   void initState() {
     super.initState();
+
+    // Todo: load history
   }
 
   @override
@@ -63,8 +65,10 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
       _controller.forward();
 
       final lastRoll = roll.rolls.last;
+
       rollHistory.insert(0, RollModel.copy(roll));
-      DatabaseHelper.addRoll(roll.sides, lastRoll);
+      // TODO: Add roll to database
+      // DatabaseHelper.addRoll(???);
     });
   }
 
@@ -72,6 +76,8 @@ class _MainWidgetState extends State<MainWidget> with TickerProviderStateMixin {
     setState(() {
       roll.oneMore();
       rollHistory.first.oneMore();
+
+      // Update roll group
     });
   }
 }
